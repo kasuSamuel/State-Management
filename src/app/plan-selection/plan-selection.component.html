@@ -1,0 +1,41 @@
+<div class="form-container">
+    <h1 class="form-description-title">Select your plan</h1>
+    <p class="form-description">You have the option of monthly or yearly billing.</p>
+    <div class="card">
+      <form class="pricing-container" >
+    
+        <div *ngFor="let option of pricingOptions; let i = index" 
+             class="option" 
+             [ngClass]="{'selected': selectedOption === i}" 
+             (click)="handleOptionClick(i)">
+             <div class="innerContent">
+          <img class="icon" [src]="option.icon" alt="icon" />
+          <div class="bills" [attr.data-plan]="isYearly ? 'yearly' : 'monthly'">
+            <h2>{{ option.name }}</h2>
+            <p>{{ isYearly ? option.yearly : option.monthly }}</p>
+            <span>{{ isYearly ? '2 months free' : '' }}</span>
+          </div>
+             </div>
+
+        </div>
+              </form>
+    </div>
+    
+    <div class="toggle-container">
+      <div class="period-container">
+        <span class="period" [ngClass]="{'active': !isYearly}">Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleSwitch" (change)="togglePricing()">
+          <span class="slider"></span>
+        </label>
+        <span class="period" [ngClass]="{'active': isYearly}">Yearly</span>
+      </div>
+    </div>
+    
+    <footer>
+      <button class="back-button" (click)="goBack()">Go Back</button>
+      <button [disabled]="selectedOption === null || selectedOption === undefined" 
+      class="next-button" (click)="goToNextPage()" type="button">Next Step</button>
+    </footer>
+    
+  </div> 

@@ -1,0 +1,217 @@
+.form-container {
+    background-color:  transparent;
+    padding: 2rem;
+    width: 450px;
+height: 372px;
+opacity: 0px;
+position: absolute;
+right:  10%;
+top: 30px; 
+}
+
+.form-description-title{
+width: 100%;
+    height: 31px;
+font-size: 32px;
+font-weight: 700;
+line-height: 36.77px;
+text-align: left;
+color: var(--denim);
+margin-bottom: 30px;
+
+}
+
+.form-description{
+width: 100%;
+height: 20px;
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+text-align: left;
+color: var(--grey);
+margin-bottom: 20px;
+}
+
+.finishing-card{
+    width: 100%;
+    height: 220px;
+    background-color: var(--very-light-grey);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.total{
+    color: var(--grey);
+    font-family: Ubuntu;
+font-size: 14px;
+font-weight: 700;
+line-height: 16.09px;
+text-align: left;
+}
+
+.price{
+    color: var(--purple);
+    font-family: Ubuntu;
+font-size: 18px;
+font-weight: bold;
+line-height: 18.38px;
+text-align: left;
+}
+
+.service{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+.service-two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 0px;
+}
+
+.storage-title{
+    color: var(--grey);
+    font-family: Ubuntu;
+font-size: 14px;
+font-weight: 700;
+line-height: 16.09px;
+text-align: left;
+}
+
+.price-finish{
+    color: var(--denim);
+    font-family: Ubuntu;
+font-size: 18px;
+font-weight: bold;
+line-height: 18.38px;
+text-align: left;
+}
+.price-finish-two{
+    color: var(--denim);
+    font-family: Ubuntu;
+font-size: 14px;
+font-weight: 600;
+line-height: 18.38px;
+text-align: left;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  position: absolute;
+  top: 30rem;
+  width: 460px;
+    height: 48px;
+  } 
+  .next-button {
+    background-color: var(--purple);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 123px;
+  height: 48px;
+  border-radius: 8px;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.38px;
+  position: absolute;
+  right: 0px;
+  
+  }
+  
+  .next-button:hover {
+    background-color: var(--purple-hover);
+    color: var(--white);
+  }
+  
+  .back-button {
+    background-color: transparent;
+    color: var(--denim);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.38px;
+  /* display: none; */
+  }
+
+  .title{
+    font-family: Ubuntu;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 18.38px;
+    text-align: left;
+    color: var(--denim);
+    margin-bottom: 4px;
+
+        
+  }
+
+  .change{
+    font-family: Ubuntu;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+text-align: left;
+text-decoration-line: underline;
+text-decoration-style: solid;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+    color: var(--grey);
+  }
+
+  .change:hover{
+    color: var(--purple);
+  }
+
+
+  .line {
+    width: 402px;
+    height: 1px;
+    top: 354px;
+    left: 664px;
+    gap: 0px;
+    opacity: 0.2px;
+    background-color: var(--grey);
+    margin-top: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    .form-container{
+        background-color: var(--white);
+        width: 70%;
+        height: 70%;
+        border-radius: 10px;
+        right:  8%;
+    top: 19%;
+    }
+    .line{
+      width: 90%;
+    }
+    footer {
+      width: 100%;
+      top: 30rem;
+      left: 0;
+      }
+  }

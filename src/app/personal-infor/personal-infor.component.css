@@ -1,0 +1,163 @@
+.form-container {
+    background-color:  transparent;
+    padding: 2rem;
+    width: 450px;
+height: 372px;
+opacity: 0px;
+position: absolute;
+right:  10%;
+top: 30px;
+}
+
+.form-description-title{
+width: 100%;
+    height: 31px;
+font-size: 32px;
+font-weight: 700;
+line-height: 36.77px;
+text-align: left;
+color: var(--denim);
+margin-bottom: 30px;
+
+}
+
+.form-description{
+width: 100%;
+height: 20px;
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+text-align: left;
+color: var(--grey);
+margin-bottom: 20px;
+}
+
+.form{
+    width: 30rem;
+    height: 320px;
+}
+
+label {
+    color: var(--denim);
+    display: block;
+    margin-bottom: 10px;
+font-size: 14px;
+font-weight: 700;
+line-height: 16.09px;
+text-align: left;
+
+}
+
+input {
+    width: 90%;
+    padding: 0.75rem;
+    margin-bottom:25px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+input::placeholder {
+    color: var(--grey);
+}
+
+input:focus {
+    border-color: var(--purple);
+    color: var(--denim);
+}
+input:hover {
+    border-color: var(--purple);
+}
+
+
+.footer {
+    position: absolute;
+    right: 30px;
+    top: 30rem;
+}
+
+.next-button {
+    background-color: var(--denim);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 123px;
+height: 48px;
+border-radius: 8px;
+font-family: Ubuntu;
+font-size: 16px;
+font-weight: 500;
+line-height: 18.38px;
+
+
+}
+
+.next-button:hover {
+    background-color: var(--denim-hover);
+    color: var(--white);
+}
+
+.hidden.error-message {
+    color: #e63946; 
+    font-size: 13px;
+    display: block;
+  }
+
+
+  .input-description{
+    width: 29.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  .hidden {
+display: none;
+ }
+
+  .input-description{
+    width: 28rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .border{
+    border: 1px solid #e63946;
+  }
+
+
+  @media (max-width: 480px) {
+.form-container{
+    background-color: var(--white);
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+    right:  8%;
+top: 19%;
+}
+
+.form{
+    width: 100%;
+    margin-top: 2rem;
+}
+.input-description{
+    width: 100%;
+}
+ input {
+    width: 90%;
+} 
+
+
+.footer {
+   top: 30rem;
+}
+  }

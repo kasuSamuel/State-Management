@@ -1,0 +1,173 @@
+.form-container {
+    background-color:  transparent;
+    padding: 2rem;
+    width: 450px;
+height: 372px;
+opacity: 0px;
+position: absolute;
+right:  10%;
+top: 30px;
+} 
+
+.form-description-title{
+width: 100%;
+    height: 31px;
+font-size: 32px;
+font-weight: 700;
+line-height: 36.77px;
+text-align: left;
+color: var(--denim);
+margin-bottom: 30px;
+
+}
+
+.form-description{
+width: 100%;
+height: 20px;
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+text-align: left;
+color: var(--grey);
+margin-bottom: 20px;
+}
+
+
+.checkbox-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem; 
+    cursor: pointer;
+  }
+
+  .correct-checkbox {
+    width: 10%;  /* Adjust the width of the checkbox container */
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Center the checkbox horizontally */
+    align-items: center;
+ }
+
+ .checkbox-option input[type="checkbox"] {
+    cursor: pointer;
+  }
+
+  .checkbox-content {
+    display: flex;
+    justify-content: space-between; 
+    width: 90%; 
+    align-items: center; 
+  }
+
+
+  .checkbox-text {
+    flex-grow: 1; 
+  }
+  
+
+
+.checkbox-title {
+
+    color: var(--denim);
+    font-family: Ubuntu;
+font-size: 16px;
+font-weight: bold;
+line-height: 18.38px;
+text-align: left;
+margin-bottom: 4px;
+font-weight: bold;
+}
+
+.checkbox-description {
+    color: var(--grey);
+    font-family: Ubuntu;
+font-size: 14px;
+font-weight: 400;
+line-height: 14.06px;
+text-align: left;
+margin-top: 0; 
+}
+
+.checkbox-price {
+    color: var(--purple);
+    font-family: Ubuntu;
+font-size: 16px;
+font-weight: bold;
+line-height: 18.38px;
+text-align: left;
+}
+
+.checkbox-option.selected {
+  border-color: var(--purple);
+  background-color: var(--light-grey);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+position: absolute;
+top: 30rem;
+width: 460px;
+  height: 48px;
+} 
+.next-button {
+  background-color: var(--denim);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  width: 123px;
+height: 48px;
+border-radius: 8px;
+font-family: Ubuntu;
+font-size: 16px;
+font-weight: 500;
+line-height: 18.38px;
+position: absolute;
+right: 0px;
+
+}
+
+.next-button:hover {
+  background-color: var(--denim-hover);
+  color: var(--white);
+}
+
+.back-button {
+  background-color: transparent;
+  color: var(--denim);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+font-family: Ubuntu;
+font-size: 16px;
+font-weight: 500;
+line-height: 18.38px;
+/* display: none; */
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  .form-container{
+      background-color: var(--white);
+      width: 70%;
+      height: 70%;
+      border-radius: 10px;
+      right:  8%;
+  top: 19%;
+  }
+  footer {
+    width: 100%;
+       top: 30rem;
+       left: 0;
+    }
+}

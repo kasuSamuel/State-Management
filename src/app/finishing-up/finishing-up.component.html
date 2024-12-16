@@ -1,0 +1,32 @@
+<div class="form-container">
+  <h1 class="form-description-title">Finishing up</h1>
+  <p class="form-description">Double-check everything looks OK before confirming.</p>
+
+  <div class="finishing-card">
+
+    <div class="service">
+      <div>
+        <p class="title">{{dataTwo.selectedPlanName }} ({{dataTwo.isYearly === true ? 'Yearly' : 'Monthly'}})</p>
+        <a href="#" class="change">Change</a>
+      </div>
+      <p class="price-finish">{{dataTwo.selectedPrice}}</p>
+    </div>
+
+    <div class="line"></div>
+
+    <div *ngFor="let Data of plansData" class="service-two">
+      <p class="storage-title">{{ Data.title }}</p>
+      <p class="price-finish-two">{{ Data.selectedPlanValue}}</p>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <p class="total">Total (per {{dataTwo.isYearly === true ? 'year' : 'month'}})</p>
+    <p class="price">+${{this.totalSum}}/{{dataTwo.isYearly === true ? 'yr' : 'mo'}}</p>
+  </div>
+  <footer>
+    <button class="back-button" (click)="goBack()">Go Back</button>
+    <button class="next-button" (click)="toConfirm()" type="submit">Confirm</button>
+  </footer>
+
+</div>
