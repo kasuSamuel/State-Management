@@ -1,23 +1,18 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { PersonalInforComponent } from './personal-infor/personal-infor.component';
-import { FinishingUpComponent } from './finishing-up/finishing-up.component';
-import { PlanSelectionComponent } from './plan-selection/plan-selection.component';
-import { PickAddComponent } from './pick-add/pick-add.component';
 import { CommonModule } from '@angular/common';
-import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,PersonalInforComponent,PlanSelectionComponent,PickAddComponent,FinishingUpComponent,ThankYouPageComponent, CommonModule],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  activeStep: number = 1; 
-  totalSteps: number = 4; 
-  constructor(private router: Router){
+  activeStep: number = 1;
+  totalSteps: number = 4;
+  constructor(private router: Router) {
   }
 
   goToPersonalInfor() {
@@ -25,7 +20,7 @@ export class AppComponent {
     this.router.navigate(['/personal-infor']);
   }
 
-  goToPlanSelection(){
+  goToPlanSelection() {
     this.router.navigate(['/plan-selection'])
     this.activeStep = 2;
     sessionStorage.clear();
@@ -44,5 +39,5 @@ export class AppComponent {
 
   }
 
-  
+
 }

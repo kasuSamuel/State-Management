@@ -1,35 +1,39 @@
 <div class="form-container">
-    <h1 class="form-description-title">Pick add-ons</h1>
-    <p class="form-description">Add-ons help enhance your gaming experience.</p>
-  
+  <h1 class="form-description-title">Pick add-ons</h1>
+  <p class="form-description">Add-ons help enhance your gaming experience.</p>
 
-
-    <div class="checkbox-container">
-      <div class="checkbox-option"
-           *ngFor="let option of checkboxOptions" 
-           [ngClass]="{'selected': option.checked}" 
-           (click)="toggleCheckbox(option)">
-        <div class="correct-checkbox">
-          <input type="checkbox" 
-                 [id]="option.id" 
-                 name="addons" 
-                 [(ngModel)]="option.checked" 
-                 [value]="option.id" /> 
+  <div class="checkbox-container">
+    <div
+      class="checkbox-option"
+      *ngFor="let option of checkboxOptions"
+      [ngClass]="{ selected: option.checked }"
+      (click)="toggleCheckbox(option)"
+    >
+      <div class="correct-checkbox">
+        <input
+          type="checkbox"
+          [id]="option.id"
+          name="addons"
+          [(ngModel)]="option.checked"
+          [value]="option.id"
+        />
+      </div>
+      <div class="checkbox-content">
+        <div class="checkbox-text">
+          <p class="checkbox-title">{{ option.title }}</p>
+          <p class="checkbox-description">{{ option.description }}</p>
         </div>
-        <div class="checkbox-content">
-          <div class="checkbox-text">
-            <p class="checkbox-title">{{ option.title }}</p>
-            <p class="checkbox-description">{{ option.description }}</p>
-          </div>
-          <p class= "checkbox-price">   {{ selectedPlan.isYearly ? option.year : option.month }}
-          </p>
-        </div>
+        <p class="checkbox-price">
+          {{ selectedPlan.isYearly ? option.year : option.month }}
+        </p>
       </div>
     </div>
+  </div>
 
-    
-    <footer>
-      <button class="back-button" (click)="goBack()">Go Back</button>
-      <button class="next-button" (click)="goToNextPage()" type="submit">Next Step</button>
-    </footer>
-  </div> 
+  <footer>
+    <button class="back-button" (click)="goBack()">Go Back</button>
+    <button class="next-button" (click)="goToNextPage()" type="submit">
+      Next Step
+    </button>
+  </footer>
+</div>

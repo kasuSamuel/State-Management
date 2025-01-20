@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { setPlan, setStep } from '../store/form.actions';
+
 
 @Component({
   selector: 'app-pick-add',
@@ -25,7 +28,7 @@ export class PickAddComponent {
     }
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: Store) { }
   checkboxOptions = [
     {
       id: 'online-service',
@@ -58,6 +61,7 @@ export class PickAddComponent {
 
 
   goToNextPage() {
+
     this.router.navigate(['/finishing-up']);
   }
   goBack() {
