@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectCurrentStep } from './store/form.selectors';
+import { setStep } from './store/form.actions';
 
 @Component({
   selector: 'app-root',
@@ -12,17 +15,24 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   activeStep: number = 1;
   totalSteps: number = 4;
-  constructor(private router: Router) {
+  constructor(private router: Router, private store: Store) {
+
+  this.store.select(selectCurrentStep).subscribe((step) => {
+    this.activeStep = step;
+  })
+
   }
 
   goToPersonalInfor() {
-    this.activeStep = 1;
+this.store.dispatch(setStep({ step: 1 }));
     this.router.navigate(['/personal-infor']);
   }
 
   goToPlanSelection() {
     this.router.navigate(['/plan-selection'])
-    this.activeStep = 2;
+    // Set the active step to 1
+    this.store.dispatch(setStep({ step: 2 }));
+    // Navigate to the personal information page
     sessionStorage.clear();
     console.log("kasu");
 
@@ -30,12 +40,12 @@ export class AppComponent {
   }
   goToPickAddons() {
     this.router.navigate(['/pick-add-ons']);
-    this.activeStep = 3;
+    this.store.dispatch(setStep({ step: 3 }));
 
   }
   goToFinishingup() {
     this.router.navigate(['/finishing-up']);
-    this.activeStep = 4;
+    this.store.dispatch(setStep({ step: 4 }));
 
   }
 

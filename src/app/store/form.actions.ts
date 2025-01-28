@@ -13,12 +13,12 @@ export const setStep = createAction(
   props<{ step: number }>()
 );
 
-export const setPlan = createAction(
-  '[Form] Set Plan',
-  props<{ title: string; monthly: boolean; amount: number }>()
+export const selectPlan = createAction(
+  '[Plan] Select Plan',
+  props<{ planName: string; planPrice: string; isYearly: boolean }>()
 );
 
-export const setPlanStep = createAction(
-  '[Form] Set Plan Step',
-  props<{ step: number }>()
+export const togglePricing = createAction(
+  '[Plan] Toggle Pricing',  
+  props<{ isYearly: boolean }>()
 );

@@ -1,72 +1,68 @@
 // src/app/store/form.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import { setPersonalInfo, setStep, setPlan, setPlanStep } from './form.actions';
+import { setPersonalInfo, setStep, selectPlan, togglePricing} from './form.actions';
 
 // Define your state interface
 export interface FormState {
   personalInfo: {
-     name: string; 
-     email: string; 
-     phone: string; 
-    };
+    name: string;
+    email: string;
+    phone: string;
+  };
   step: number;
 }
-
 
 export interface PlanState {
-  selected:{
-    title: string;
-  monthly: boolean;
-  amount: number;}
-  step: number;
-
+  selectedPlanName: string | null;
+  selectedPrice: string | null;
+  isYearly: boolean;
 }
 
+export const initialPlanState: PlanState = {
+  selectedPlanName: null,
+  selectedPrice: null,
+  isYearly: false,
+};
 
 export interface AddOnState {
-  selected:{
+  selected: {
     title: string;
-  monthly: boolean;
-  amount: number;
-}
+    monthly: boolean;
+    amount: number;
+  };
   step: number;
-
 }
 
 // Define initial state
 export const initialState: FormState = {
   personalInfo: { name: '', email: '', phone: '' },
-  step: 1
+  step: 1,
 };
-export const selectedPlanState: PlanState = {
-  selected: {title: '', monthly: true, amount: 0},
-  step: 2
-};
-
-
 // Create the reducer function
 export const formReducer = createReducer(
   initialState,
   on(setPersonalInfo, (state, { name, email, phone }) => ({
     ...state,
-    personalInfo: { name, email, phone }
+    personalInfo: { name, email, phone },
   })),
   on(setStep, (state, { step }) => ({
     ...state,
-    step
-  }))
+    step,
+  })),
+  
 );
 
-
 export const planReducer = createReducer(
-  selectedPlanState,
-    on(setPlan, (state, { title, monthly, amount }) => ({
+  initialState,
+  on(selectPlan, (state, { planName, planPrice, isYearly }) => ({
     ...state,
-    selected: { title, monthly, amount },
+    selectedPlanName: planName,
+    selectedPrice: planPrice,
+    isYearly: isYearly,
   })),
-  on( setPlanStep , (state, { step }) => ({
+  on(togglePricing, (state, { isYearly }) => ({
     ...state,
-    step,
+    isYearly: isYearly,
   }))
 );
 

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { setPlan, setStep } from '../store/form.actions';
+import {  setStep } from '../store/form.actions';
 
 
 @Component({
@@ -61,10 +61,13 @@ export class PickAddComponent {
 
 
   goToNextPage() {
+    this.store.dispatch(setStep({ step: 4 }));
 
     this.router.navigate(['/finishing-up']);
   }
   goBack() {
+        this.store.dispatch(setStep({ step: 2 }));
+
     this.router.navigate(['/plan-selection']);
   }
 

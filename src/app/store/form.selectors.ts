@@ -1,9 +1,11 @@
 // src/app/store/form.selectors.ts
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { FormState } from './form.reducer';
+import { FormState, PlanState } from './form.reducer';
 
 // Select the form state
-export const selectFormState = createFeatureSelector<FormState>('form');
+export const selectFormState = createFeatureSelector<FormState>('stepForm');
+// Select the form state
+
 
 // Selector to get personal info
 export const selectPersonalInfo = createSelector(
@@ -17,4 +19,20 @@ export const selectCurrentStep = createSelector(
   (state: FormState) => state.step
 );
 
+export const selectPlanState = createFeatureSelector<PlanState>('plan');
+
+export const selectSelectedPlan = createSelector(
+  selectPlanState,
+  (state: PlanState) => state.selectedPlanName
+);
+
+export const selectSelectedPrice = createSelector(
+  selectPlanState,
+  (state: PlanState) => state.selectedPrice
+);
+
+export const selectIsYearly = createSelector(
+  selectPlanState,
+  (state: PlanState) => state.isYearly
+);
 

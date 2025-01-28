@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { setPersonalInfo, setStep } from '../store/form.actions';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { selectPersonalInfo } from '../store/form.selectors';
 @Component({
   selector: 'app-personal-infor',
   standalone: true,
@@ -17,10 +18,19 @@ export class PersonalInforComponent {
   formData: FormGroup;
 
   constructor(private router: Router, private fb: FormBuilder, private store: Store) {
+  
+
     this.formData = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required]
+    });
+
+    this.store.select(selectPersonalInfo).subscribe((personalInfo) => {
+      if(personalInfo) {
+      this.formData.patchValue(personalInfo);
+      }
+      console.log(personalInfo);
     });
   }
 
@@ -47,12 +57,13 @@ export class PersonalInforComponent {
     const { name, email, phone } = this.formData.value;
     this.store.dispatch(setPersonalInfo({ name, email, phone }));
     this.store.dispatch(setStep({ step: 2 }));
-    // Form is valid, navigate to the next page
     this.router.navigate(['/plan-selection']);
   }
 
   goToNextPage() {
     this.onSubmit();
     console.log(this.formData.value);
+    this.store.dispatch(setStep({ step: 4 }));
+
   }
 }

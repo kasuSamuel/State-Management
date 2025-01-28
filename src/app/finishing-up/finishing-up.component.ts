@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { setStep } from '../store/form.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-finishing-up',
@@ -18,7 +20,7 @@ export class FinishingUpComponent implements OnInit {
   sum: number = 0;
   totalSum: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: Store) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -42,7 +44,7 @@ export class FinishingUpComponent implements OnInit {
     this.totalSum = this.sum + this.totalAmount;
   }
 
-  toConfirm() {
+  toConfirm() {    
     this.router.navigate(['/thank-you']);
   }
 
@@ -51,5 +53,7 @@ export class FinishingUpComponent implements OnInit {
       sessionStorage.removeItem('optionData');
     }
     this.router.navigate(['/pick-add-ons']);
+        this.store.dispatch(setStep({ step: 3 }));
+    
   }
 }
