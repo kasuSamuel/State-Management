@@ -60,6 +60,7 @@ export const planReducer = createReducer(
     selectedPrice: planPrice,
     isYearly: isYearly,
   })),
+  
   on(togglePricing, (state, { isYearly }) => ({
     ...state,
     isYearly: isYearly,

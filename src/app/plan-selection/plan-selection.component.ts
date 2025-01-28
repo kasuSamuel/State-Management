@@ -20,9 +20,7 @@ export class PlanSelectionComponent {
     
   constructor(private router: Router, private store: Store){
      this.store.select(selectIsYearly ).subscribe((yearly) => {
-      if(yearly) {
         this.isYearly = yearly;
-      }
       })
   }
 
@@ -99,9 +97,5 @@ export class PlanSelectionComponent {
 togglePricing() {
 this.store.dispatch(togglePricing({ isYearly: !this.isYearly }));
 }
-
-
-
-  
 
 }
