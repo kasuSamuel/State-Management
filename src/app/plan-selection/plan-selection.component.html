@@ -4,6 +4,7 @@
     <div class="card">
       <form class="pricing-container" >
     
+        
         <div *ngFor="let option of pricingOptions; let i = index" 
              class="option" 
              [ngClass]="{'selected': selectedOption === i || option.name === selectedOption}" 

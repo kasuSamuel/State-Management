@@ -20,7 +20,9 @@ export class PlanSelectionComponent {
     
   constructor(private router: Router, private store: Store){
      this.store.select(selectIsYearly ).subscribe((yearly) => {
+      if(yearly) {
         this.isYearly = yearly;
+      }
       })
   }
 
@@ -32,6 +34,14 @@ export class PlanSelectionComponent {
         this.selectedOption = selectedPlan;
       }
     })
+
+    sessionStorage.setItem('selectedPlan', JSON.stringify({
+      selectedOption: this.selectedOption, 
+      selectedPlanName: this.pricingOptions[0].name, 
+      isYearly: this.isYearly,
+      selectedPrice: this.isYearly ? this.pricingOptions[this.selectedOption].yearly : this.pricingOptions[this.selectedOption].monthly,
+
+    }));
     
   }
   pricingOptions = [
@@ -97,5 +107,9 @@ export class PlanSelectionComponent {
 togglePricing() {
 this.store.dispatch(togglePricing({ isYearly: !this.isYearly }));
 }
+
+
+
+  
 
 }
